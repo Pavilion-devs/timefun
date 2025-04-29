@@ -1,0 +1,18 @@
+{
+  "name": "lab2-broken-auth",
+  "version": "1.0.0",
+  "description": "Lab demonstrating broken authentication in Web3 signer API",
+  "main": "index.js",
+  "scripts": {
+    "start:vulnerable": "node src/vulnerable/server.js",
+    "start:secure": "node src/secure/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "ethers": "^6.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^16.3.1"
+  }
+} 
