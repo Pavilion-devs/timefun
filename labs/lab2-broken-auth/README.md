@@ -52,7 +52,7 @@ npm run start:vulnerable
 
 4. Start the secure server (in a different terminal):
 ```bash
-npm run start:secure
+npm run start:secure ( Don't forget to Navigate to the Lab directory ( Step 1)
 ```
 
 ## Testing
